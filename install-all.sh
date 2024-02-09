@@ -3,18 +3,22 @@
 sudo apt-get install build-essential gfortran gdb -y
 
 # FOR MPICH
-if [ "$1" == "mpich" ]
-sudo apt-get install mpich -y
+if test [ "$1" == "mpich" ]; then
+	sudo apt-get install mpich -y
+fi
 
 # FOR OPENMPI
-if [ "$1" == "openmpi" ]; then
+if test [ "$1" == "openmpi" ]; then
 	sudo apt-get install openmpi-bin openmpi-dev libopenmpi-dev -y
 fi
 
 # FOR MVAPICH
-if [ "$1" == "mvapich" ]; then
+if test [ "$1" == "mvapich" ]; then
 	sudo apt-get install libtool autoconf libibverbs-dev bison byacc -y
 	wget http://mvapich.cse.ohio-state.edu/download/mvapich/mv2/mvapich2-2.3.1.tar.gz
+	tar xf mvapich2-2.3.1.tar.gz
+	rm mvapich2-2.3.1.tar.gz
+	cd mvapich2-2.3.1
 	sudo ./configure --disable-mcast
 	autoreconf -f -i
 	sudo make FFLAGS=-Wno-argument-mismatch
