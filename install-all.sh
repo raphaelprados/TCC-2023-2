@@ -8,12 +8,12 @@ if test [ "$1" == "mpich" ]; then
 fi
 
 # FOR OPENMPI
-if test [ "$1" == "openmpi" ]; then
+if [ "$1" == "openmpi" ]; then
 	sudo apt-get install openmpi-bin openmpi-dev libopenmpi-dev -y
 fi
 
 # FOR MVAPICH
-if test [ "$1" == "mvapich" ]; then
+if [ "$1" == "mvapich" ]; then
 	sudo apt-get install libtool autoconf libibverbs-dev bison byacc -y
 	wget http://mvapich.cse.ohio-state.edu/download/mvapich/mv2/mvapich2-2.3.1.tar.gz
 	tar xf mvapich2-2.3.1.tar.gz
