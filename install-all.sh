@@ -9,7 +9,7 @@ fi
 
 # FOR OPENMPI
 if [ "$1" == "openmpi" ]; then
-	sudo apt-get install openmpi-bin openmpi-dev libopenmpi-dev -y
+	sudo apt-get install openmpi-bin openmpi-doc libopenmpi-dev -y
 fi
 
 # FOR MVAPICH
@@ -36,6 +36,9 @@ ssh cnode which dmtcp_launch
 ssh-keygen -t dsa
 ssh-keygen -t rsa
 cat ~/.ssh/id*.pub >> ~/.ssh/authorized_keys
+sudo make clean
+sudo make
+sudo make install
 cd ..
 
 wget https://nas.nasa.gov/assets/npb/NPB3.4.2.tar.gz
