@@ -23,6 +23,7 @@ if [ "$1" == "mvapich" ]; then
 	autoreconf -f -i
 	sudo make FFLAGS=-Wno-argument-mismatch
 	sudo make install
+ 	cd ..
 fi
 
 wget https://github.com/raphaelprados/TCC-2023-2/raw/main/dmtcp-2.5.2.tar.gz
@@ -48,6 +49,7 @@ cd NPB3.4.2/NPB3.4-MPI
 nano config/make.def.template
 make bt CLASS=E
 make lu CLASS=E
+make lu CLASS=C
 make ft CLASS=E
 cd ../..
 
